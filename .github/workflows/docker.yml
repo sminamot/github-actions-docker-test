@@ -38,3 +38,7 @@ jobs:
           docker buildx build \
             --platform linux/arm/v7 \
             --output "type=image,push=false" .
+      -
+        name: Check Image
+        run: |
+          docker images
