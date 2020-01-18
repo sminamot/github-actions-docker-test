@@ -39,11 +39,7 @@ jobs:
             --platform linux/arm/v7 \
             -t github-actions-docker-test \
             --output "type=image,push=false" .
-      -
-        name: Check Image
-        run: |
-          docker buildx ls
-          docker images
+          docker imgaes
       -
         name: Login GitHub Registry
         run: |
