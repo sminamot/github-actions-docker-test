@@ -36,6 +36,7 @@ jobs:
         name: Run Buildx
         run: |
           docker buildx build \
+            --load \
             --platform linux/arm/v7 \
             -t github-actions-docker-test .
           docker images
