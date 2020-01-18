@@ -43,8 +43,6 @@ jobs:
         name: Check Image
         run: |
           docker images \
-          docker run github-actions-docker-test
-
       -
         name: Login GitHub Registry
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
