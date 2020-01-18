@@ -11,4 +11,4 @@ jobs:
         name: sminamot/hello-world
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: "0.0.1"
+        tags: "latest,0.0.1"
