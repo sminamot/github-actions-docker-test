@@ -1,4 +1,4 @@
-FROM golang:1.13 as builder
+FROM arm32v7/golang:1.13 as builder
 
 WORKDIR /app
 
