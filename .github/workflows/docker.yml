@@ -42,4 +42,5 @@ jobs:
       -
         name: Check Image
         run: |
-          docker images
+          docker images \
+          docker run github-actions-docker-test
