@@ -39,7 +39,7 @@ jobs:
             --platform linux/arm/v7 \
             -t github-actions-docker-test \
             --output "type=image,push=false" .
-          docker imgaes
+          docker images
       -
         name: Login GitHub Registry
         run: |
