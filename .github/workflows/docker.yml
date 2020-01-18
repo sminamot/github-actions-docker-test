@@ -49,6 +49,6 @@ jobs:
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       -
         name: Publish to Registry
-        run |
+        run: |
           docker tag github-actions-docker-test sminamot/hello-world:0.0.3
           docker push sminamot/hello-world:0.0.3
