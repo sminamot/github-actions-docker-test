@@ -1,8 +1,9 @@
 name: Publish Docker
-on: [push]
-  #  push:
-  #    tags:
-  #      - v*
+#on: [push]
+on:
+  push:
+    tags:
+      - v*
   #jobs:
   #  build:
   #    runs-on: ubuntu-latest
@@ -33,6 +34,11 @@ jobs:
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
+        name: Set build tag
+        run: |
+          IMAGE_TAG=${GITHUB_REF##*/v}
+          echo ::set-env name=IMAGE_TAG::${IMAGE_TAG}
+      -
         name: Login GitHub Registry
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
@@ -42,8 +48,7 @@ jobs:
           docker buildx build \
             --push \
             --platform linux/arm/v7 \
-            -t sminamot/hello-world .
-          docker images
+            -t sminamot/hello-world:${IMAGE_TAG} .
       #-
       #  name: Publish to Registry
       #  run: |
