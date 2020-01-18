@@ -42,8 +42,8 @@ jobs:
       -
         name: Check Image
         run: |
-          docker buildx ls \
-          docker images \
+          docker buildx ls
+          docker images
       -
         name: Login GitHub Registry
         run: |
