@@ -33,7 +33,7 @@ jobs:
           docker build -t sminamot/hello-world:latest-${goarch} --file Dockerfile-multi --build-arg GOARCH=${goarch} .; \
           done
           # latest-amd64 -> latest
-          docker tag -t sminamot/hello-world:latest-amd64 sminamot/hello-world:latest
+          docker tag sminamot/hello-world:latest-amd64 sminamot/hello-world:latest
       -
         name: Push image to DockerHub
         run: |
