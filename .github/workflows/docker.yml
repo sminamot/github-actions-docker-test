@@ -29,4 +29,4 @@ jobs:
         name: Push image to GitHub Registry
         run: |
           docker build -t sminamot/hello-world --file Dockerfile .
-          docker push docker.pkg.github.com/${{ github.repository }}/${IMAGE_NAME}:${IMAGE_TAG}
+          docker push sminamot/hello-world
