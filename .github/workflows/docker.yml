@@ -32,10 +32,12 @@ jobs:
           echo $goarch; \
           docker build -t sminamot/hello-world:latest-${goarch} --file Dockerfile-multi --build-arg GOARCH=${goarch} .; \
           done
+          # latest-amd64 -> latest
+          docker tag -t sminamot/hello-world:latest-amd64 sminamot/hello-world:latest
       -
         name: Push image to DockerHub
         run: |
-          for goarch in amd64 arm; do \
+          for tag in latest latest-amd64 latest-arm; do \
           echo $goarch; \
-          docker push sminamot/hello-world:latest-${goarch};\
+          docker push sminamot/hello-world:${tag};\
           done
