@@ -1,0 +1,15 @@
+ARG GOARCH="amd64"
+FROM golang:1.13 as builder
+
+WORKDIR /app
+
+ENV GOARCH $GOARCH
+ENV GOOS linux
+
+COPY . .
+RUN CGO_ENABLED=0 go build -o main
+
+FROM alpine:3.11
+COPY --from=builder /app/main .
+
+ENTRYPOINT ["./main"]

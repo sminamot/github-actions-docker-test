@@ -26,7 +26,14 @@ jobs:
       #      --platform linux/arm/v7 \
       #      -t sminamot/hello-world .
       -
-        name: Push image to GitHub Registry
+        name: Build image
         run: |
-          docker build -t sminamot/hello-world --file Dockerfile .
-          docker push sminamot/hello-world
+          for goarch in amd64 arm; do \
+          docker build -t sminamot/hello-world:latest-${goarch} --file Dockerfile-multi --build-arg GOARCH=${goarch} .; \
+          done
+      -
+        name: Push image to DockerHub
+        run: |
+          for goarch in amd64 arm; do \
+          docker push sminamot/hello-world:latest-${goarch};\
+          done
