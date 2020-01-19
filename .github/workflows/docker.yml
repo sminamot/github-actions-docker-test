@@ -29,11 +29,13 @@ jobs:
         name: Build image
         run: |
           for goarch in amd64 arm; do \
+          echo $goarch; \
           docker build -t sminamot/hello-world:latest-${goarch} --file Dockerfile-multi --build-arg GOARCH=${goarch} .; \
           done
       -
         name: Push image to DockerHub
         run: |
           for goarch in amd64 arm; do \
+          echo $goarch; \
           docker push sminamot/hello-world:latest-${goarch};\
           done

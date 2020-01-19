@@ -1,10 +1,10 @@
-ARG GOARCH="amd64"
+ARG GOARCH
 FROM golang:1.13 as builder
 
 WORKDIR /app
 
-ENV GOARCH $GOARCH
 ENV GOOS linux
+ENV GOARCH $GOARCH
 
 COPY . .
 RUN CGO_ENABLED=0 go build -o main
