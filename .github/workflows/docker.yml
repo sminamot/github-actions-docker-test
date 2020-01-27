@@ -23,6 +23,7 @@ jobs:
         name: Buildx test
         run: |
           docker buildx build \
+            --load
             --platform linux/arm/v7,linux/amd64 \
             -t sminamot/hello-world .
 
