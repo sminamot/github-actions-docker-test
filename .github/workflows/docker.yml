@@ -24,7 +24,7 @@ jobs:
         run: |
           docker buildx build \
             --load \
-            --platform linux/arm/v7,linux/amd64 \
+            --platform linux/arm/v7 \
             -t sminamot/hello-world .
 
       -
