@@ -25,7 +25,7 @@ jobs:
           docker buildx build \
             --push \
             --platform linux/arm/v7,linux/amd64 \
-            -t sminamot/hello-world:latest
+            -t sminamot/hello-world:latest \
             -t sminamot/hello-world:0.0.5 .
 
 #      -
