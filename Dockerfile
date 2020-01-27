@@ -1,6 +1,6 @@
 FROM golang:1.13 as builder
-ENV GOOS linux
-ENV GOARCH arm
+#ENV GOOS linux
+#ENV GOARCH arm
 
 WORKDIR /app
 

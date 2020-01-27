@@ -27,18 +27,22 @@ jobs:
             -t sminamot/hello-world .
 
       -
-        name: Build image
+        name: Image list
         run: |
-          for goarch in amd64 arm; do \
-          echo $goarch; \
-          docker build -t sminamot/hello-world:latest-${goarch} --file Dockerfile-multi --build-arg GOARCH=${goarch} .; \
-          done
-          # latest-amd64 -> latest
-          docker tag sminamot/hello-world:latest-amd64 sminamot/hello-world:latest
-      -
-        name: Push image to DockerHub
-        run: |
-          for tag in latest latest-amd64 latest-arm; do \
-          echo $goarch; \
-          docker push sminamot/hello-world:${tag};\
-          done
+          docker images
+#      -
+#        name: Build image
+#        run: |
+#          for goarch in amd64 arm; do \
+#          echo $goarch; \
+#          docker build -t sminamot/hello-world:latest-${goarch} --file Dockerfile-multi --build-arg GOARCH=${goarch} .; \
+#          done
+#          # latest-amd64 -> latest
+#          docker tag sminamot/hello-world:latest-amd64 sminamot/hello-world:latest
+#      -
+#        name: Push image to DockerHub
+#        run: |
+#          for tag in latest latest-amd64 latest-arm; do \
+#          echo $goarch; \
+#          docker push sminamot/hello-world:${tag};\
+#          done
